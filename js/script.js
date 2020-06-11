@@ -61,7 +61,7 @@ hideTabContent(1);
 		let timer = document.getElementById(id),
 			 hours = timer.querySelector('.hours'),
 			 minutes = timer.querySelector('.minutes'),
-			 seconds = timer.querySelector('.seconds');
+			 seconds = timer.querySelector('.seconds'),
 			 timeInterval = setInterval(updateClock, 1000);
 		
 		function updateClock () {
@@ -78,4 +78,23 @@ hideTabContent(1);
 	}
 
 	setClock('timer', deadLine);
+
+	// модальное окно
+
+		let more = document.querySelector('.more'),
+			 overlay = document.querySelector('.overlay'),
+			 close = document.querySelector('.popup-close');
+
+			more.addEventListener('click', function(){
+				overlay.style.display = 'block';
+				this.classList.add('more-splash');
+				document.body.style.overflow = 'hidden';
+			});
+			
+			close.addEventListener('click', function(){
+				overlay.style.display = 'none';
+				more.classList.remove('more-splahs');
+				document.body.style.overflow = '';
+			});
+
 });
